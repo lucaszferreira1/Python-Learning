@@ -1,19 +1,23 @@
-sala1 = [0,0]
-sala2 = [0,0]
+salas = [0, 0]
+
 posbot = [0]
 
-def aspirar(sala):
-    sala = [1,1]
-    return sala
+def aspirar():
+    salas[posbot[0] - 1] = 1
+    return salas
 
-def entrarSala1(posbot):
-    posbot[0] = 0
+def entrarSala(sala):
+    posbot[0] = sala  
     return posbot
 
-def entrarSala2(posbot):
-    posbot[0] = 1
-    return posbot
+def addSala(salas, status):
+    for x in status:
+        salas += [x]
+    return salas
 
-print(entrarSala1(posbot) + aspirar(sala1))
-
-print(entrarSala2(posbot) + aspirar(sala2))
+print(posbot + salas)
+print(entrarSala(1) + aspirar())
+print(entrarSala(2) + aspirar())
+addSala(salas, [0, 0, 1])
+print(entrarSala(3) + aspirar())
+print(entrarSala(5) + aspirar())
