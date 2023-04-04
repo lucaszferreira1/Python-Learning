@@ -28,5 +28,5 @@ def navigate(palavra, posAtual, letraAtual, tempPalavra, finais):
 if __name__ == "__main__":
     # auto = AFD("ab", [0, 1, 2], [['', 'a', ''], ['', '', 'b'], ['a', '', 'a']], 0, [2])
     # auto = AFD("ab", [0, 1, 2, 3], [["", "a", "b", ""], ["", "", "b", "a"], ["", "a", "", "b"],["", "", "", "ab"]], 0, [3])
-    
-    # print(navigate('', auto.qi, 0, "", auto.F))
+    # palavra = "aba"
+    # print(navigate(palavra, auto.qi, 0, "", auto.F))
