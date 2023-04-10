@@ -38,7 +38,7 @@ while running:
             for j in range(0, 8):
                 if board[i][j]:
                     p = board[i][j]
-                    img = pygame.image.load("chessIcons\p"+p.color+p.name+".png")
+                    img = pygame.image.load("Chess\chessIcons\p"+p.color+p.name+".png")
                     screen.blit(img, (j*scale+3, i*scale+4))
 
     pygame.display.flip()
