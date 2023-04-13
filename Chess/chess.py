@@ -27,6 +27,13 @@ def drawSelected(positions):
         pygame.draw.circle(screen, 'red', [pos[0]*scale+scale/2, pos[1]*scale+scale/2], 15)
     
 
+class Move:
+    def __init__(self, piece, posfrom , posto):
+        self.piece = piece
+        self.posfrom = posfrom
+        self.posto = posto
+    
+    
 
 class Piece:
     def __init__(self, name, color, weight):
