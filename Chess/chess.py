@@ -93,7 +93,21 @@ whiteColor = (238,238,210)
 blackColor = (118,150,86)
 
 # The board containing all the pieces
-board = [[Piece("Rook", "black", 5), Piece("Knight", "black", 3), Piece("Bishop", "black", 3), Piece("Queen", "black", 9), Piece("King", "black", 0), Piece("Bishop", "black", 3), Piece("Knight", "black", 3), Piece("Rook", "black", 5)], [Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1)], ['', '', Piece("Queen", "white", 1), '', '', '', '', ''], ['', '', '', '', '', '', '', ''], ['', '', '', '', '', '', '', ''], ['', '', Piece("Pawn", "black", 1), '', '', '', '', ''], [Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1)], [Piece("Rook", "white", 5), Piece("Knight", "white", 3), Piece("Bishop", "white", 3), Piece("Queen", "white", 9), Piece("King", "white", 0), Piece("Bishop", "white", 3), Piece("Knight", "white", 3), Piece("Rook", "white", 5)]]
+board = [
+    [Piece("Rook", "black", 5), Piece("Knight", "black", 3), Piece("Bishop", "black", 3), Piece("Queen", "black", 9), Piece("King", "black", 0), Piece("Bishop", "black", 3), Piece("Knight", "black", 3), Piece("Rook", "black", 5)],
+    [Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1), Piece("Pawn", "black", 1)],
+    ['', '', Piece("Queen", "white", 1), '', '', '', '', ''],
+    ['', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', Piece("Pawn", "black", 1), ''],
+    ['', '', Piece("Pawn", "black", 1), '', '', '', '', ''],
+    [Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1), Piece("Pawn", "white", 1)],
+    [Piece("Rook", "white", 5), Piece("Knight", "white", 3), Piece("Bishop", "white", 3), Piece("Queen", "white", 9), Piece("King", "white", 0), Piece("Bishop", "white", 3), Piece("Knight", "white", 3), Piece("Rook", "white", 5)]]
+
+squareselected = []
+movesDone = []
+oldSelection = []
+currentturn = 'w'
+
 
 # Main Loop
 while running:
