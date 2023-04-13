@@ -97,16 +97,30 @@ board = [[Piece("Rook", "black", 5), Piece("Knight", "black", 3), Piece("Bishop"
 
 # Main Loop
 while running:
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.MOUSEBUTTONUP:
-            squareselected = translateXY(pygame.mouse.get_pos(), scale)
-            print(squareselected)
-            print(board[squareselected[1]][squareselected[0]].get_moves(squareselected, board))
+            mousepos = translateXY(pygame.mouse.get_pos())
+            if board[mousepos[1]][mousepos[0]] and board[mousepos[1]][mousepos[0]].color[0] == currentturn:
+                oldSelection = mousepos
+                newselection = board[mousepos[1]][mousepos[0]].get_moves(mousepos)
+                if newselection != squareselected:
+                    squareselected = newselection
+                else:
+                    squareselected = []
+            else:
+                print(mousepos)
+                lastmove = Move(board[oldSelection[0]][oldSelection[1]], oldSelection, mousepos)
+                moveTo(lastmove)
+                movesDone.append(lastmove)
 
-    drawBoard(screen, scale, whiteColor, blackColor, board)
 
+    drawBoard()
+
+    if squareselected:
+        drawSelected(squareselected)
 
     pygame.display.flip()
 
