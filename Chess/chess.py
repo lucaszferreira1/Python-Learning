@@ -1,7 +1,7 @@
 import pygame
 
 # Draws the board of the game and the pieces in the board
-def drawBoard(screen, scale, whiteColor, blackColor, board):
+def drawBoard():
     # Draw the board
     screen.fill(blackColor)
     for i in range(0, 8, 2):
@@ -43,7 +43,7 @@ class Piece:
     def __str__(self) -> str:
         return self.color.capitalize() + " " + self.name
     # Returns the moves that piece can do, at the end it checks if any of the moves is illegal or impossible
-    def get_moves(self, pos, board):
+    def get_moves(self, pos):
         moves = []
         if self.color == "white":
             intcolor = -1
@@ -69,7 +69,7 @@ class Piece:
         return moves
 
 # Receives the pos of the piece and gets the int values for x and y
-def translateXY(pos, scale):
+def translateXY(pos):
     newpos = [-1, -1]
     newpos[0] = int((pos[0] - (pos[0] % scale)) / scale)
     newpos[1] = int((pos[1] - (pos[1] % scale)) / scale)
