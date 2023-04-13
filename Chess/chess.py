@@ -21,7 +21,10 @@ def drawBoard(screen, scale, whiteColor, blackColor, board):
                     screen.blit(img, (j*scale+3, i*scale+4))
 
 
-# def drawSelected(screen, scale, whiteColor, blackColor, pos):
+# Draws a circle to represent the possible moves a piece can make
+def drawSelected(positions):
+    for pos in positions:
+        pygame.draw.circle(screen, 'red', [pos[0]*scale+scale/2, pos[1]*scale+scale/2], 15)
     
 
 
