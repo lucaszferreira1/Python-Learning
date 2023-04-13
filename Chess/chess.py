@@ -75,6 +75,12 @@ def translateXY(pos, scale):
 def isOutOfBounds(pos):
     return True if 0 > pos[0] > 7 and 0 > pos[1] > 7 else False 
 
+
+def moveTo(move):
+    board[move.posto[1]][move.posto[0]] = move.piece
+    board[move.posfrom[1]][move.posfrom[0]] = ''
+
+
 pygame.init()
 widhei = 540
 scale = widhei / 8
