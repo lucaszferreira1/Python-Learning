@@ -45,6 +45,10 @@ class Piece:
     # Returns the moves that piece can do, at the end it checks if any of the moves is illegal or impossible
     def get_moves(self, pos, board):
         moves = []
+        if self.color == "white":
+            intcolor = -1
+        elif self.color == "black":
+            intcolor = 1
         if self.name == "Pawn":
             if board[pos[1] + intcolor][pos[0]]:
                 pass
