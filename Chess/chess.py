@@ -46,21 +46,18 @@ class Piece:
     def get_moves(self, pos, board):
         moves = []
         if self.name == "Pawn":
-            if self.color == "white":
-                intcolor = -1
-            elif self.color == "black":
-                intcolor = 1
-            if board[pos[1]+intcolor][pos[0]]:
+            if board[pos[1] + intcolor][pos[0]]:
                 pass
-            elif not board[pos[1]+intcolor+intcolor][pos[0]]:
-                moves.append([pos[0], pos[1]+intcolor+intcolor])
-            if not board[pos[1]+intcolor][pos[0]]:
-                moves.append([pos[0], pos[1]+intcolor])
-            
-            if board[pos[1]+intcolor][pos[0]+intcolor] != '' and board[pos[1]+intcolor][pos[0]+intcolor].color != self.color:
-                moves.append([pos[0]+intcolor, pos[1]+intcolor])
-            if board[pos[1]+intcolor][pos[0]-intcolor] != '' and board[pos[1]+intcolor][pos[0]-intcolor].color != self.color:
-                moves.append([pos[0]-intcolor, pos[1]+intcolor])
+            elif not board[pos[1] + intcolor + intcolor][pos[0]]:
+                moves.append([pos[0], pos[1] + intcolor + intcolor])
+            if not board[pos[1] + intcolor][pos[0]]:
+                moves.append([pos[0], pos[1] + intcolor])
+            if 0 <= pos[0] + intcolor <= 7:
+                if board[pos[1] + intcolor][pos[0] + intcolor] != '' and board[pos[1] + intcolor][pos[0] + intcolor].color != self.color:
+                    moves.append([pos[0] + intcolor, pos[1] + intcolor])
+            if 0 <= pos[0] - intcolor <= 7:
+                if board[pos[1] + intcolor][pos[0] - intcolor] != '' and board[pos[1] + intcolor][pos[0] - intcolor].color != self.color:
+                    moves.append([pos[0] - intcolor, pos[1] + intcolor])
             
         for move in moves:
             if isOutOfBounds(move):
