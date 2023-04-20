@@ -21,23 +21,23 @@ def knight_moves(pos):
                 positions.add(int_to_pos([matrizpos[0] + j, matrizpos[1] + i]))
     return positions
 
-def knight_shortest_path(startpos, endpos, visited = set()):
-    moves = BFS(startpos, endpos)
-
-def BFS(startpos, endpos, visited = set()):
+def BFS(startpos, endpos):
     queue = []
+    visited = []
+    graph = {}
     queue.append(startpos)
-    visited.add(startpos)
+    visited.append(startpos)
     while queue:
         s = queue.pop(0)
-        
-        for i in knight_moves(s):
+        moves_s = knight_moves(s)
+        temp_dict = {s:moves_s}
+        graph = graph | temp_dict
+        for i in moves_s:
             if i == endpos:
-                visited.add(i)
-                return
+                return graph
             if i not in visited:
                 queue.append(i)
-                visited.add(i)
+                visited.append(i)
     
     
     
