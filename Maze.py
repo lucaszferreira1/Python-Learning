@@ -1,27 +1,5 @@
 import pygame
 
-class Square:
-    def __init__(self, walls):
-        # [North, East, South, West] 
-        self.walls = walls
-    
-    def draw(self, x, y):
-        x *= scaleX
-        y *= scaleY
-
-        # North
-        if self.walls[0] == 1:
-            pygame.draw.line(screen, 255, [x, y], [x + scaleX, y], 1)
-        # East
-        if self.walls[1] == 1:
-            pygame.draw.line(screen, 255, [x + scaleX, y], [x + scaleX, y + scaleY], 1)
-        # South
-        if self.walls[2] == 1:
-            pygame.draw.line(screen, 255, [x, y + scaleY], [x + scaleX, y + scaleY], 1)
-        # West
-        if self.walls[3] == 1:
-            pygame.draw.line(screen, 255, [x, y], [x, y + scaleY], 1)
-
 if __name__ == "__main__":
     
     pygame.init()
@@ -31,10 +9,10 @@ if __name__ == "__main__":
     clock = pygame.time.Clock()
     running = True
 
-    allSquares = [[Square([1, 0, 0, 1]), Square([1, 0, 0, 0]), Square([1, 0, 0, 0]), Square([1, 1, 0, 0])],
-                  [Square([0, 0, 0, 1]), Square([1, 0, 0, 1]), Square([1, 1, 0, 0]), Square([0, 1, 0, 0])],
-                  [Square([0, 0, 0, 1]), Square([0, 0, 1, 1]), Square([0, 1, 1, 0]), Square([0, 1, 0, 0])],
-                  [Square([0, 0, 1, 1]), Square([0, 0, 1, 0]), Square([0, 0, 1, 0]), Square([0, 1, 1, 0])]]
+    allSquares = [[0,0,0,0],
+                  [0,1,1,0],
+                  [0,1,1,0],
+                  [0,0,0,0],]
 
     scaleX = width / len(allSquares)
     scaleY = height / len(allSquares[0])
@@ -55,7 +33,8 @@ if __name__ == "__main__":
 
         for i in range(len(allSquares)):
             for j in range(len(allSquares[i])):
-                allSquares[i][j].draw(j, i)
+                if allSquares[i][j]:
+                    pygame.draw.rect(screen, (100, 100, 100), (i * scaleX, j * scaleY, scaleX, scaleY))
 
         pygame.draw.rect(screen, (30, 30, 150), startRect)
         pygame.draw.rect(screen, (150, 30, 30), goalRect)
