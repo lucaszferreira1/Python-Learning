@@ -137,9 +137,9 @@ if __name__ == "__main__":
     vis = []
     # vis = BFS()
     # vis = DFS()
-    # vis = a_star()
+    vis = a_star()
 
-    vis = maze_with_dfs()
+    # vis = maze_with_dfs()
 
     while running:
         for event in pygame.event.get():
