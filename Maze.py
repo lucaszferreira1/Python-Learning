@@ -80,7 +80,7 @@ def get_h(start, end):
     return end[0] - start[0] + end[1] - start[1]
 
 
-def maze_with_dfs(no=None, visited=[]):
+def maze_with_dfs(limit, no=None, visited=[]):
     if not no:
         no = start
     if no not in visited:
@@ -91,28 +91,20 @@ def maze_with_dfs(no=None, visited=[]):
             node_check = [no[0] + dire[0], no[1] + dire[1]]
             if node_check[0] < 0 or node_check[1] < 0 or node_check[0] > limit or node_check[1] > limit:
                 continue
-            maze_with_dfs(node_check, visited)
+            maze_with_dfs(limit, node_check, visited)
     return visited
 
 
 def isnt_within_limits(node_check, limiter):
-    print(limiter)
     return True if (node_check[0] < 0 or node_check[1] < 0 or node_check[0] > limiter[0] or node_check[1] > limiter[1]) else False
 
 
 if __name__ == "__main__":
 
+    adiciona = [[-1, 0], [0, -1], [1, 0], [0, 1]]
+
     wall = '#'
     free = '.'
-
-    limit = 50
-
-    pygame.init()
-    width = 720
-    height = 720
-    screen = pygame.display.set_mode((width, height))
-    clock = pygame.time.Clock()
-    running = True
 
     allSquares = []
     arquivo = open('input.txt', encoding='utf-8-sig')
@@ -122,24 +114,28 @@ if __name__ == "__main__":
     allSquares[-1] += free
     allSquares[-2] += free
 
+    pygame.init()
+    width = len(allSquares[-1]) * 15
+    height = len(allSquares) * 15
+    screen = pygame.display.set_mode((width, height))
+    clock = pygame.time.Clock()
+    running = True
+
     scaleX = width / len(allSquares[0])
     scaleY = height / len(allSquares)
 
     start = [0, 0]
     startRect = getDefaultRect(start[0], start[1])
 
-    goal = [len(allSquares) - 1, len(allSquares[:-1]) - 1]
+    goal = [len(allSquares) - 1, len(allSquares[-1]) - 1]
     goalRect = getDefaultRect(goal[1], goal[0])
-
-    adiciona = [[-1, 0], [0, -1], [1, 0], [0, 1]]
-    lastDrawn = 1
 
     vis = []
     # vis = BFS()
     # vis = DFS()
-    vis = a_star()
-
-    # vis = maze_with_dfs()
+    # vis = a_star()
+    
+    # vis = maze_with_dfs(50)
 
     while running:
         for event in pygame.event.get():
