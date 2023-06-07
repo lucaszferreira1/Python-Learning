@@ -128,8 +128,8 @@ if __name__ == "__main__":
     start = [0, 0]
     startRect = getDefaultRect(start[0], start[1])
 
-    goal = [len(allSquares) - 1, len(allSquares[:-1])]
-    goalRect = getDefaultRect(goal[0], goal[1])
+    goal = [len(allSquares) - 1, len(allSquares[:-1]) - 1]
+    goalRect = getDefaultRect(goal[1], goal[0])
 
     adiciona = [[-1, 0], [0, -1], [1, 0], [0, 1]]
     lastDrawn = 1
