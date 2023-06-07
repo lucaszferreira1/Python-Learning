@@ -137,6 +137,7 @@ if __name__ == "__main__":
     
     # vis = maze_with_dfs(50)
 
+    lastDrawn = 0
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
