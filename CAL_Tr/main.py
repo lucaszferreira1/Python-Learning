@@ -34,7 +34,6 @@ city_positions = {
         'Palmas': (-48.3378, -10.1844)
     }
 
-# Dicionário de distâncias rodoviárias e coordenadas geográficas entre capitais brasileiras (ordenado)
 distances_cities = {
     'Aracaju': {
         'Maceió': 271,
@@ -255,19 +254,17 @@ def get_closed_roads():
 if __name__ == '__main__':
     closed_roads = get_closed_roads()
 
-    # Criar um grafo com networkx
     G = nx.Graph()
     for city, neighbors in distances_cities.items():
         for neighbor, distance in neighbors.items():
             G.add_edge(city, neighbor, weight=distance)
 
-    # Exemplo de uso do algoritmo A*
     start_city = 'Porto Alegre'
     goal_city = 'Boa Vista'
     path = a_star(distances_cities, start_city, goal_city)
 
     if path:
         print("Caminho encontrado:", " -> ".join(path))
-        plot_brazil_map(G, path, closed_roads)  # Exibir o mapa do Brasil com o caminho
+        plot_brazil_map(G, path, closed_roads)
     else:
         print("Caminho não encontrado.")
