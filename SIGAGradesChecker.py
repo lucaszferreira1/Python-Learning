@@ -52,11 +52,11 @@ def getNotas(driver):
     test = elemento_existe(driver, f'formPrincipal:notasFaltas:0:j_idt177')
     cont = 0
     while test:
-        field_disc = driver.find_element('id', f'formPrincipal:notasFaltas:{i}:j_idt177')
-        if elemento_existe(driver, f'formPrincipal:notasFaltas:{i}:j_idt183'):
-            field_nota = driver.find_element('id', f'formPrincipal:notasFaltas:{i}:j_idt183')
+        field_disc = driver.find_element('id', f'formPrincipal:notasFaltas:{cont}:j_idt177')
+        if elemento_existe(driver, f'formPrincipal:notasFaltas:{cont}:j_idt183'):
+            field_nota = driver.find_element('id', f'formPrincipal:notasFaltas:{cont}:j_idt183')
         else:
-            field_nota = driver.find_element('id', f'formPrincipal:notasFaltas:{i}:j_idt185')
+            field_nota = driver.find_element('id', f'formPrincipal:notasFaltas:{cont}:j_idt185')
         notas[field_disc.text] = field_nota.text
         cont += 1
         test = elemento_existe(driver, f'formPrincipal:notasFaltas:{i+1}:j_idt177')
