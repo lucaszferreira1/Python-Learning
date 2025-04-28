@@ -77,6 +77,7 @@ def calc(values, mapa):
     for i in range(len(values) - 1):
         if values[i] and values[i + 1]:
             e += mapa.get_distance(values[i], values[i + 1])
+    e += mapa.get_distance(values[0], values[i])
     return e
 
 
