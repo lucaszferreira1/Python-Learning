@@ -1,0 +1,11 @@
+Ackley:
+Analysis of 30 runs:
+Standard Deviation: 1.4210854715202006e-15
+Average Fitness: 4.7073456244106636e-15
+Minimum Fitness: 3.9968028886505635e-15
+
+Griewank:
+Analysis of 30 runs:
+Standard Deviation: 0.0
+Average Fitness: 0.0
+Minimum Fitness: 0.0
